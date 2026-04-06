@@ -2,9 +2,6 @@
   "name": "muslim-wedding-invitation",
   "version": "1.0.0",
   "description": "Muslim wedding invitation static website",
-  "scripts": {
-    "test": "vitest --run"
-  },
   "devDependencies": {
     "vitest": "^1.6.0",
     "jsdom": "^24.0.0",
