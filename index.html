@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wedding Invitation — Adeline &amp; Harper</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — CSS Custom Properties
+       ============================================================ */
+    :root {
+      --color-bg: #fdf6f0;
+      --color-primary: #e8a0b4;
+      --color-secondary: #c9a0dc;
+      --color-text: #3d2b2b;
+      --color-text-light: #7a5c5c;
+      --color-card-bg: #fff9f9;
+      --color-accent-border: #e8a0b4;
+      --font-display: 'Great Vibes', cursive;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Lato', sans-serif;
+      --font-arabic: 'Amiri', serif;
+      --section-padding: clamp(3rem, 8vw, 6rem);
+      --card-radius: 1rem;
+      --card-shadow: 0 4px 24px rgba(200, 100, 130, 0.08);
+    }
+    /* ============================================================
+       RESET & BASE TYPOGRAPHY
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--color-bg);
+      font-family: var(--font-body);
+      color: var(--color-text);
+      line-height: 1.7;
+    }
+    h1, h2, h3 { font-family: var(--font-heading); line-height: 1.3; }
+    h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); color: var(--color-text); margin-bottom: 1.5rem; }
+    h3 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: var(--color-secondary); margin-bottom: 1rem; }
+    p { margin-bottom: 1rem; }
+    .display-name { font-family: var(--font-display); }
+    .bismillah { font-family: var(--font-arabic); }
+    /* ============================================================
+       LAYOUT CONTAINER
+       ============================================================ */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+    section { padding: var(--section-padding) 0; }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .section-heading::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+      margin: 0.75rem auto 0;
+      border-radius: 2px;
+    }
+    /* ============================================================
+       HERO SECTION
+       ============================================================ */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #fdf6f0 0%, #fce8f0 50%, #f0e8fc 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero .container { position: relative; z-index: 2; }
+    .hero-florals {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-floral-tl {
+      position: absolute;
+      top: -10px; left: -10px;
+      width: 220px; height: 220px;
+      animation: float 6s ease-in-out infinite;
+      opacity: 0.55;
+    }
+    .hero-floral-br {
+      position: absolute;
+      bottom: -10px; right: -10px;
+      width: 220px; height: 220px;
+      animation: float 6s ease-in-out infinite reverse;
+      opacity: 0.55;
+    }
+    .hero-floral-tr {
+      position: absolute;
+      top: 20px; right: 20px;
+      width: 140px; height: 140px;
+      animation: float 8s ease-in-out infinite 1s;
+      opacity: 0.35;
+    }
+    .hero-floral-bl {
+      position: absolute;
+      bottom: 20px; left: 20px;
+      width: 140px; height: 140px;
+      animation: float 8s ease-in-out infinite 2s reverse;
+      opacity: 0.35;
+    }
+    .couple-illustration {
+      width: clamp(180px, 40vw, 280px);
+      height: auto;
+      margin: 0 auto 1.5rem;
+      display: block;
+      filter: drop-shadow(0 8px 24px rgba(232, 160, 180, 0.3));
+    }
+    .bismillah {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+    .headline {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+      color: rgba(255,255,255,0.8);
+      max-width: 520px;
+      margin: 0 auto 1.5rem;
+    }
+    /* Day sky — warm rose/mauve tones matching page palette */
+    #couple-names {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 10vw, 6rem);
+      color: #7a2a45;                          /* deep rose — readable on soft pink sky */
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      text-shadow:
+        0 1px 0 rgba(255,255,255,0.6),         /* white lift */
+        0 3px 16px rgba(232,160,180,0.55);     /* soft pink glow */
+      -webkit-text-stroke: 0.5px rgba(180,80,110,0.25);
+    }
+    #couple-names.name-revealed {
+      animation: nameReveal 1.2s ease forwards;
+    }
+    /* Night sky — soft silver/moonlight tones */
+    #hero.night-sky #couple-names {
+      color: #f0e6ff;                          /* pale lavender-white */
+      text-shadow:
+        0 1px 0 rgba(255,255,255,0.2),
+        0 3px 20px rgba(201,160,220,0.7),      /* lavender glow */
+        0 0 40px rgba(180,140,220,0.35);       /* moonlit halo */
+      -webkit-text-stroke: 0.5px rgba(220,190,255,0.3);
+    }
+    .hero-tagline {
+      font-size: 0.9rem;
+      color: #7a2a45;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+    #hero.night-sky .hero-tagline {
+      color: rgba(240,230,255,0.8);
+    }
+    /* ============================================================
+       EVENT DETAILS SECTION
+       ============================================================ */
+    #event { background: #fff9f9; }
+    .event-card {
+      background: var(--color-card-bg);
+      border: 1.5px solid var(--color-accent-border);
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .event-card::before, .event-card::after {
+      content: '';
+      position: absolute;
+      width: 80px; height: 80px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='6' fill='%23e8a0b4' opacity='0.3'/%3E%3Ccircle cx='20' cy='20' r='4' fill='%23c9a0dc' opacity='0.25'/%3E%3Ccircle cx='60' cy='60' r='4' fill='%23c9a0dc' opacity='0.25'/%3E%3C/svg%3E") no-repeat center;
+    }
+    .event-card::before { top: 0; left: 0; }
+    .event-card::after { bottom: 0; right: 0; transform: rotate(180deg); }
+    .date-badge {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      border-radius: var(--card-radius);
+      color: white;
+      display: inline-block;
+      min-width: 140px;
+    }
+    .date-badge-day { font-size: 3rem; font-family: var(--font-heading); font-weight: 700; line-height: 1; }
+    .date-badge-month { font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.9; }
+    .date-badge-year { font-size: 0.85rem; opacity: 0.8; margin-top: 0.25rem; }
+    .event-badge-wrap { text-align: center; margin-bottom: 2rem; }
+    .details-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    .detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: white;
+      border-radius: 0.75rem;
+      border-left: 3px solid var(--color-primary);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .detail-item:hover { box-shadow: 0 6px 20px rgba(232,160,180,0.18); transform: translateY(-2px); }
+    .detail-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .detail-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-text-light); display: block; margin-bottom: 0.2rem; }
+    .detail-value { font-family: var(--font-heading); font-size: 1.05rem; color: var(--color-text); }
+    /* ============================================================
+       WALIMAH SECTION
+       ============================================================ */
+    #walimah { background: var(--color-bg); }
+    .walimah-intro {
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+      color: var(--color-text-light);
+      font-size: 1.05rem;
+    }
+    .hadith-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .hadith-card {
+      background: var(--color-card-bg);
+      border-left: 4px solid var(--color-primary);
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      padding: 1.75rem 1.75rem 1.25rem;
+      position: relative;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .hadith-card:hover { box-shadow: 0 8px 32px rgba(200,100,130,0.16); transform: translateY(-3px); }
+    .hadith-card::before {
+      content: '\201C';
+      font-family: var(--font-heading);
+      font-size: 5rem;
+      color: var(--color-secondary);
+      opacity: 0.18;
+      position: absolute;
+      top: -0.5rem;
+      left: 1rem;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .hadith-card blockquote {
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--color-text);
+      margin-bottom: 0.75rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hadith-card cite {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--color-text-light);
+      font-style: normal;
+      letter-spacing: 0.04em;
+    }
+    /* ============================================================
+       WISDOM SUB-SECTION
+       ============================================================ */
+    #wisdom {
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(232,160,180,0.3);
+    }
+    #wisdom .section-heading { margin-bottom: 2rem; }
+    .wisdom-group { margin-bottom: 2.5rem; }
+    .wisdom-group:last-child { margin-bottom: 0; }
+    .wisdom-group h3 {
+      font-family: var(--font-heading);
+      font-size: clamp(1rem, 2.2vw, 1.25rem);
+      color: var(--color-secondary);
+      margin-bottom: 1.25rem;
+      padding-left: 0.75rem;
+      border-left: 3px solid var(--color-secondary);
+    }
+    .wisdom-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    /* ============================================================
+       RSVP SECTION
+       ============================================================ */
+    #rsvp {
+      background: linear-gradient(160deg, #fce8f0 0%, #f0e8fc 100%);
+      text-align: center;
+    }
+    .rsvp-closing {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      color: var(--color-text);
+      max-width: 560px;
+      margin: 0 auto 1.5rem;
+    }
+    .rsvp-message {
+      font-size: 1rem;
+      color: var(--color-text-light);
+      margin-bottom: 2rem;
+    }
+    .rsvp-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      opacity: 0.6;
+    }
+    .rsvp-divider-line { flex: 1; max-width: 120px; height: 1px; background: var(--color-primary); }
+    .rsvp-btn {
+      display: inline-block;
+      padding: 0.85rem 2.5rem;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 16px rgba(232,160,180,0.35);
+    }
+    .rsvp-btn:hover { box-shadow: 0 8px 28px rgba(232,160,180,0.5); transform: translateY(-2px); }
+    .rsvp-footer {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      opacity: 0.7;
+    }
+    /* Detail links — date/time → countdown, venue → maps */
+    .detail-link {
+      text-decoration: none;
+      color: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.2s ease;
+    }
+    .detail-link:hover { color: var(--color-primary); }
+    .detail-link:hover .detail-value { text-decoration: underline; text-decoration-color: var(--color-primary); }
+    .venue-link { display: inline-flex; align-items: center; gap: 0.3rem; }
+    .venue-map-icon { font-size: 0.9rem; opacity: 0.7; }
+    .date-badge-link { text-decoration: none; display: inline-block; }
+    .date-badge-link:hover .date-badge { filter: brightness(1.08); transform: translateY(-2px); transition: transform 0.2s ease, filter 0.2s ease; }
+
+    /* ============================================================
+       COUNTDOWN SECTION
+       ============================================================ */
+    #countdown {
+      background: linear-gradient(135deg, #fce8f0 0%, #f0e8fc 100%);
+      text-align: center;
+    }
+    .countdown-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .countdown-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: white;
+      border: 2px solid var(--color-accent-border);
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      padding: 1.2rem 1.4rem;
+      min-width: 80px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .countdown-unit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(232,160,180,0.22);
+    }
+    .cd-number {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1;
+      min-width: 2ch;
+      display: block;
+    }
+    .cd-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-text-light);
+      margin-top: 0.4rem;
+    }
+    .countdown-sep {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      color: var(--color-secondary);
+      font-weight: 700;
+      line-height: 1;
+      padding-bottom: 1.4rem;
+      align-self: center;
+    }
+    .countdown-msg {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--color-secondary);
+      min-height: 1.5rem;
+    }
+    /* Celebration state — shown after countdown completes */
+    .cd-celebration {
+      padding: 1rem 0 0.5rem;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    .cd-cele-icon {
+      font-size: 3rem;
+      margin-bottom: 0.75rem;
+      animation: float 3s ease-in-out infinite;
+    }
+    .cd-cele-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      color: var(--color-text);
+      margin-bottom: 1rem;
+      font-style: normal;
+    }
+    .cd-cele-dua {
+      font-family: var(--font-arabic);
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: var(--color-text);
+      margin-bottom: 0.4rem;
+      direction: rtl;
+    }
+    .cd-cele-dua-en {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      margin-bottom: 1rem;
+    }
+    .cd-cele-sub {
+      font-size: 1rem;
+      color: var(--color-text-light);
+      max-width: 520px;
+      margin: 0 auto;
+      font-style: normal;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes cdPulse {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.06); }
+    }
+    .cd-tick { animation: cdPulse 0.3s ease; }
+
+    /* ============================================================
+       ANIMATIONS
+       ============================================================ */
+    /* ============================================================
+       SKY SCENE
+       ============================================================ */
+    #sky-canvas {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+    #sky-canvas svg {
+      width: 100%; height: 100%;
+      position: absolute; top: 0; left: 0;
+    }
+    /* Day sky gradient */
+    #hero.day-sky {
+      background: linear-gradient(180deg, #ffd6e8 0%, #fce8f5 35%, #e8d8f8 70%, #f0e8fc 100%);
+    }
+    /* Night sky gradient */
+    #hero.night-sky {
+      background: linear-gradient(180deg, #0d0a2e 0%, #1a1050 35%, #2d1a6e 70%, #3d2060 100%);
+    }
+    /* Sun */
+    .sky-sun {
+      animation: sunPulse 4s ease-in-out infinite;
+    }
+    @keyframes sunPulse {
+      0%, 100% { filter: drop-shadow(0 0 18px rgba(255,220,80,0.7)); }
+      50%       { filter: drop-shadow(0 0 36px rgba(255,220,80,1)); }
+    }
+    /* Clouds */
+    .sky-cloud-1 { animation: cloudDrift1 40s linear infinite; }
+    .sky-cloud-2 { animation: cloudDrift2 55s linear infinite 8s; }
+    .sky-cloud-3 { animation: cloudDrift3 48s linear infinite 20s; }
+    @keyframes cloudDrift1 {
+      from { transform: translateX(-220px); }
+      to   { transform: translateX(110vw); }
+    }
+    @keyframes cloudDrift2 {
+      from { transform: translateX(-180px); }
+      to   { transform: translateX(110vw); }
+    }
+    @keyframes cloudDrift3 {
+      from { transform: translateX(-200px); }
+      to   { transform: translateX(110vw); }
+    }
+    /* Birds */
+    .sky-bird-1 { animation: birdFly1 18s linear infinite; }
+    .sky-bird-2 { animation: birdFly2 24s linear infinite 4s; }
+    .sky-bird-3 { animation: birdFly3 20s linear infinite 9s; }
+    .sky-bird-4 { animation: birdFly4 28s linear infinite 2s; }
+    .sky-bird-5 { animation: birdFly5 22s linear infinite 14s; }
+    @keyframes birdFly1 {
+      from { transform: translateX(-60px) translateY(0px); }
+      to   { transform: translateX(110vw) translateY(-20px); }
+    }
+    @keyframes birdFly2 {
+      from { transform: translateX(-60px) translateY(0px); }
+      to   { transform: translateX(110vw) translateY(15px); }
+    }
+    @keyframes birdFly3 {
+      from { transform: translateX(-60px) translateY(0px); }
+      to   { transform: translateX(110vw) translateY(-10px); }
+    }
+    @keyframes birdFly4 {
+      from { transform: translateX(-60px) translateY(0px); }
+      to   { transform: translateX(110vw) translateY(25px); }
+    }
+    @keyframes birdFly5 {
+      from { transform: translateX(-60px) translateY(0px); }
+      to   { transform: translateX(110vw) translateY(-30px); }
+    }
+    /* Stars */
+    .sky-star { animation: starTwinkle var(--twinkle-dur, 2s) ease-in-out infinite var(--twinkle-delay, 0s); }
+    @keyframes starTwinkle {
+      0%, 100% { opacity: 0.9; }
+      50%       { opacity: 0.2; }
+    }
+    /* Couple names backdrop */
+    .names-backdrop {
+      display: inline-block;
+      background: rgba(255,255,255,0.22);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 2rem;
+      padding: 1rem 2.5rem;
+      margin-bottom: 0.5rem;
+      border: 1px solid rgba(232,160,180,0.3);
+    }
+    #hero.night-sky .names-backdrop {
+      background: rgba(30,15,60,0.35);
+      border: 1px solid rgba(201,160,220,0.25);
+    }
+    /* Day sky text */
+    .bismillah { color: #5a2035; }
+    .headline  { color: rgba(90,32,53,0.8); }
+    /* Night sky text overrides */
+    #hero.night-sky .bismillah,
+    #hero.night-sky .headline {
+      color: rgba(240,230,255,0.75);
+    }
+    /* ============================================================
+       FLOWER GARDEN SECTION
+       ============================================================ */
+    #flower-garden {
+      background: transparent;
+      padding: 0;
+      overflow: hidden;
+      position: relative;
+      margin-top: -4px; /* flush with hero bottom */
+    }
+    #plant-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    /* Handwriting hint text */
+    .flower-caption {
+      text-align: center;
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      color: #7a5c3a;
+      padding: 0.25rem 1rem 1.5rem;
+      margin: 0;
+      line-height: 1.6;
+      opacity: 0.85;
+    }
+    /* Stem growth via stroke-dashoffset */
+    #plant-stem   { stroke-dasharray: 340; stroke-dashoffset: 340; transition: stroke-dashoffset 2.2s ease-out; }
+    #plant-stem-l { stroke-dasharray: 90;  stroke-dashoffset: 90;  transition: stroke-dashoffset 1.2s ease-out 0.8s; }
+    #plant-stem-r { stroke-dasharray: 90;  stroke-dashoffset: 90;  transition: stroke-dashoffset 1.2s ease-out 1s; }
+    /* Leaf / petal opacity transitions */
+    .plant-leaf    { opacity: 0; transition: opacity 1s ease, transform 1s ease; }
+    .plant-bud     { opacity: 0; transition: opacity 0.8s ease 0.3s; }
+    .plant-petal   { opacity: 0; }
+    .plant-sparkle { opacity: 0; }
+    /* Bloom animations */
+    @keyframes bloom {
+      0%   { opacity: 0; transform: scale(0.1) rotate(-15deg); }
+      55%  { opacity: 1; transform: scale(1.18) rotate(3deg); }
+      100% { opacity: 1; transform: scale(1) rotate(0deg); }
+    }
+    @keyframes sparkleAnim {
+      0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+      35%       { opacity: 1; transform: scale(1.3) rotate(180deg); }
+      65%       { opacity: 0.7; transform: scale(0.8) rotate(300deg); }
+    }
+    @keyframes petalFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%       { transform: translateY(-8px) rotate(4deg); }
+    }
+    /* Bloom class applied by JS */
+    #flower-garden.bloomed .plant-petal   { animation: bloom 1.4s ease forwards; }
+    #flower-garden.bloomed .plant-sparkle { animation: sparkleAnim 2.2s ease infinite; }
+    #flower-garden.bloomed #bloom-group   { animation: petalFloat 4s ease-in-out infinite 1.8s; }
+    /* ============================================================
+       FLOWER SHOWER
+       ============================================================ */
+    .flower-petal {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      border-radius: 50% 0 50% 0;
+      opacity: 0.85;
+    }
+    @keyframes petalFall {
+      0%   { transform: translateY(-20px) rotate(0deg) scale(1); opacity: 0.9; }
+      80%  { opacity: 0.7; }
+      100% { transform: translateY(110vh) rotate(720deg) scale(0.5); opacity: 0; }
+    }
+    @keyframes nameReveal {
+      from { opacity: 0; letter-spacing: 0.5em; }
+      to   { opacity: 1; letter-spacing: normal; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50%       { transform: translateY(-12px) rotate(3deg); }
+    }
+    .animate-hidden {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .animate-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+    .stagger-5 { transition-delay: 0.5s; }
+    .stagger-6 { transition-delay: 0.6s; }
+    /* ============================================================
+       RESPONSIVE — TABLET (640px+)
+       ============================================================ */
+    @media (min-width: 640px) {
+      .details-grid { grid-template-columns: 1fr 1fr; }
+      .hadith-cards-grid { grid-template-columns: 1fr 1fr; }
+      .wisdom-cards-grid { grid-template-columns: 1fr 1fr; }
+      #couple-names { font-size: clamp(3.5rem, 9vw, 5rem); }
+    }
+    /* ============================================================
+       RESPONSIVE — DESKTOP (1024px+)
+       ============================================================ */
+    @media (min-width: 1024px) {
+      .details-grid { grid-template-columns: 1fr 1fr; }
+      .hadith-cards-grid { grid-template-columns: 1fr 1fr; }
+      .wisdom-cards-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+      .event-card { padding: 3rem 3.5rem; }
+    }
+    /* ============================================================
+       GRACEFUL DEGRADATION — REDUCED MOTION
+       ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- Azure deployment: place this file in wwwroot. No web.config required for single-page static site. -->
+
+<!-- Hidden SVG symbol definitions for reusable floral motifs -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="floral-rose" viewBox="0 0 100 100">
+    <!-- Pink rose petals -->
+    <g fill="none">
+      <ellipse cx="50" cy="38" rx="10" ry="16" fill="#e8a0b4" opacity="0.85" transform="rotate(0 50 50)"/>
+      <ellipse cx="50" cy="38" rx="10" ry="16" fill="#e8a0b4" opacity="0.75" transform="rotate(45 50 50)"/>
+      <ellipse cx="50" cy="38" rx="10" ry="16" fill="#f0b8c8" opacity="0.7" transform="rotate(90 50 50)"/>
+      <ellipse cx="50" cy="38" rx="10" ry="16" fill="#f0b8c8" opacity="0.7" transform="rotate(135 50 50)"/>
+      <ellipse cx="50" cy="38" rx="10" ry="16" fill="#e8a0b4" opacity="0.65" transform="rotate(180 50 50)"/>
+      <ellipse cx="50" cy="38" rx="10" ry="16" fill="#e8a0b4" opacity="0.65" transform="rotate(225 50 50)"/>
+      <ellipse cx="50" cy="38" rx="10" ry="16" fill="#f0b8c8" opacity="0.6" transform="rotate(270 50 50)"/>
+      <ellipse cx="50" cy="38" rx="10" ry="16" fill="#f0b8c8" opacity="0.6" transform="rotate(315 50 50)"/>
+      <!-- Center -->
+      <circle cx="50" cy="50" r="8" fill="#d4607a" opacity="0.7"/>
+      <circle cx="50" cy="50" r="4" fill="#c04060" opacity="0.8"/>
+      <!-- Leaves -->
+      <ellipse cx="30" cy="72" rx="8" ry="14" fill="#7ab87a" opacity="0.6" transform="rotate(-30 30 72)"/>
+      <ellipse cx="70" cy="72" rx="8" ry="14" fill="#7ab87a" opacity="0.6" transform="rotate(30 70 72)"/>
+    </g>
+  </symbol>
+  <symbol id="floral-sprig" viewBox="0 0 80 120">
+    <!-- Lavender sprig -->
+    <line x1="40" y1="110" x2="40" y2="20" stroke="#8a6a9a" stroke-width="2.5" stroke-linecap="round"/>
+    <ellipse cx="40" cy="18" rx="5" ry="8" fill="#c9a0dc" opacity="0.9"/>
+    <ellipse cx="40" cy="30" rx="4.5" ry="7" fill="#c9a0dc" opacity="0.85"/>
+    <ellipse cx="40" cy="42" rx="4" ry="6.5" fill="#d4b0e8" opacity="0.8"/>
+    <ellipse cx="40" cy="53" rx="3.5" ry="6" fill="#d4b0e8" opacity="0.75"/>
+    <ellipse cx="40" cy="63" rx="3" ry="5.5" fill="#c9a0dc" opacity="0.7"/>
+    <!-- Side buds left -->
+    <ellipse cx="32" cy="35" rx="3.5" ry="6" fill="#c9a0dc" opacity="0.7" transform="rotate(-20 32 35)"/>
+    <ellipse cx="30" cy="50" rx="3" ry="5.5" fill="#d4b0e8" opacity="0.65" transform="rotate(-25 30 50)"/>
+    <!-- Side buds right -->
+    <ellipse cx="48" cy="35" rx="3.5" ry="6" fill="#c9a0dc" opacity="0.7" transform="rotate(20 48 35)"/>
+    <ellipse cx="50" cy="50" rx="3" ry="5.5" fill="#d4b0e8" opacity="0.65" transform="rotate(25 50 50)"/>
+    <!-- Leaves -->
+    <ellipse cx="28" cy="75" rx="7" ry="12" fill="#7ab87a" opacity="0.5" transform="rotate(-35 28 75)"/>
+    <ellipse cx="52" cy="75" rx="7" ry="12" fill="#7ab87a" opacity="0.5" transform="rotate(35 52 75)"/>
+  </symbol>
+</svg>
+
+<!-- ============================================================
+     HERO SECTION
+     ============================================================ -->
+<section id="hero">
+  <!-- Animated sky scene — day or night determined by JS -->
+  <div id="sky-canvas" aria-hidden="true">
+    <!-- Day sky elements -->
+    <svg id="sky-day-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" style="display:none">
+      <!-- Sun -->
+      <g class="sky-sun">
+        <circle cx="900" cy="120" r="55" fill="#ffe066" opacity="0.9"/>
+        <circle cx="900" cy="120" r="42" fill="#fff0a0" opacity="0.95"/>
+        <circle cx="900" cy="120" r="30" fill="#ffffff" opacity="0.8"/>
+      </g>
+      <!-- Cloud 1 -->
+      <g class="sky-cloud-1" style="transform:translateX(-220px)">
+        <ellipse cx="160" cy="160" rx="70" ry="28" fill="white" opacity="0.75"/>
+        <ellipse cx="120" cy="168" rx="45" ry="22" fill="white" opacity="0.7"/>
+        <ellipse cx="200" cy="165" rx="50" ry="20" fill="white" opacity="0.7"/>
+        <ellipse cx="160" cy="148" rx="40" ry="22" fill="white" opacity="0.65"/>
+      </g>
+      <!-- Cloud 2 -->
+      <g class="sky-cloud-2" style="transform:translateX(-180px)">
+        <ellipse cx="300" cy="90" rx="80" ry="30" fill="white" opacity="0.65"/>
+        <ellipse cx="255" cy="98" rx="50" ry="24" fill="white" opacity="0.6"/>
+        <ellipse cx="345" cy="96" rx="55" ry="22" fill="white" opacity="0.6"/>
+        <ellipse cx="300" cy="76" rx="45" ry="24" fill="white" opacity="0.55"/>
+      </g>
+      <!-- Cloud 3 -->
+      <g class="sky-cloud-3" style="transform:translateX(-200px)">
+        <ellipse cx="500" cy="200" rx="65" ry="25" fill="white" opacity="0.6"/>
+        <ellipse cx="460" cy="207" rx="42" ry="20" fill="white" opacity="0.55"/>
+        <ellipse cx="540" cy="205" rx="48" ry="19" fill="white" opacity="0.55"/>
+        <ellipse cx="500" cy="190" rx="38" ry="20" fill="white" opacity="0.5"/>
+      </g>
+      <!-- Birds — simple V-shapes -->
+      <g class="sky-bird-1" style="transform:translateX(-60px)" opacity="0.7">
+        <path d="M50,80 Q55,74 60,80 Q65,74 70,80" fill="none" stroke="#5a3a3a" stroke-width="2" stroke-linecap="round"/>
+        <path d="M75,76 Q80,70 85,76 Q90,70 95,76" fill="none" stroke="#5a3a3a" stroke-width="2" stroke-linecap="round"/>
+      </g>
+      <g class="sky-bird-2" style="transform:translateX(-60px)" opacity="0.65">
+        <path d="M50,140 Q56,133 62,140 Q68,133 74,140" fill="none" stroke="#5a3a3a" stroke-width="2" stroke-linecap="round"/>
+      </g>
+      <g class="sky-bird-3" style="transform:translateX(-60px)" opacity="0.6">
+        <path d="M50,60 Q55,54 60,60 Q65,54 70,60" fill="none" stroke="#5a3a3a" stroke-width="2" stroke-linecap="round"/>
+        <path d="M78,55 Q83,49 88,55 Q93,49 98,55" fill="none" stroke="#5a3a3a" stroke-width="2" stroke-linecap="round"/>
+        <path d="M105,62 Q110,56 115,62 Q120,56 125,62" fill="none" stroke="#5a3a3a" stroke-width="2" stroke-linecap="round"/>
+      </g>
+      <g class="sky-bird-4" style="transform:translateX(-60px)" opacity="0.55">
+        <path d="M50,200 Q56,193 62,200 Q68,193 74,200" fill="none" stroke="#5a3a3a" stroke-width="2" stroke-linecap="round"/>
+        <path d="M80,195 Q86,188 92,195 Q98,188 104,195" fill="none" stroke="#5a3a3a" stroke-width="2" stroke-linecap="round"/>
+      </g>
+      <g class="sky-bird-5" style="transform:translateX(-60px)" opacity="0.5">
+        <path d="M50,110 Q55,104 60,110 Q65,104 70,110" fill="none" stroke="#5a3a3a" stroke-width="2" stroke-linecap="round"/>
+      </g>
+    </svg>
+    <!-- Night sky elements -->
+    <svg id="sky-night-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" style="display:none">
+      <!-- Crescent moon -->
+      <g>
+        <circle cx="900" cy="110" r="50" fill="#fffde0" opacity="0.95"/>
+        <circle cx="925" cy="95" r="42" fill="#1a1050" opacity="1"/>
+      </g>
+      <!-- Stars — 14 twinkling circles at varied positions/delays -->
+      <circle class="sky-star" cx="80"  cy="60"  r="2.5" fill="white" style="--twinkle-dur:2.1s;--twinkle-delay:0s"/>
+      <circle class="sky-star" cx="200" cy="40"  r="2"   fill="white" style="--twinkle-dur:1.8s;--twinkle-delay:0.4s"/>
+      <circle class="sky-star" cx="350" cy="80"  r="3"   fill="white" style="--twinkle-dur:2.5s;--twinkle-delay:0.8s"/>
+      <circle class="sky-star" cx="500" cy="30"  r="2"   fill="white" style="--twinkle-dur:1.6s;--twinkle-delay:1.2s"/>
+      <circle class="sky-star" cx="620" cy="70"  r="2.5" fill="white" style="--twinkle-dur:2.3s;--twinkle-delay:0.2s"/>
+      <circle class="sky-star" cx="750" cy="45"  r="2"   fill="white" style="--twinkle-dur:1.9s;--twinkle-delay:1.5s"/>
+      <circle class="sky-star" cx="150" cy="130" r="2"   fill="white" style="--twinkle-dur:2.7s;--twinkle-delay:0.6s"/>
+      <circle class="sky-star" cx="420" cy="150" r="2.5" fill="white" style="--twinkle-dur:2.0s;--twinkle-delay:1.0s"/>
+      <circle class="sky-star" cx="680" cy="120" r="2"   fill="white" style="--twinkle-dur:1.7s;--twinkle-delay:0.3s"/>
+      <circle class="sky-star" cx="820" cy="55"  r="3"   fill="white" style="--twinkle-dur:2.4s;--twinkle-delay:1.8s"/>
+      <circle class="sky-star" cx="1050" cy="80" r="2"   fill="white" style="--twinkle-dur:2.2s;--twinkle-delay:0.9s"/>
+      <circle class="sky-star" cx="1100" cy="40" r="2.5" fill="white" style="--twinkle-dur:1.5s;--twinkle-delay:1.3s"/>
+      <circle class="sky-star" cx="280" cy="100" r="2"   fill="white" style="--twinkle-dur:2.6s;--twinkle-delay:0.7s"/>
+      <circle class="sky-star" cx="960" cy="130" r="2"   fill="white" style="--twinkle-dur:1.8s;--twinkle-delay:2.0s"/>
+    </svg>
+  </div>
+
+  <!-- Parallax floral decorations -->
+  <div class="hero-florals" id="hero-florals" aria-hidden="true">
+    <div class="hero-floral-tl">
+      <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+        <use href="#floral-rose" x="10" y="10" width="90" height="90"/>
+        <use href="#floral-sprig" x="100" y="0" width="60" height="90"/>
+        <use href="#floral-rose" x="60" y="100" width="70" height="70"/>
+        <use href="#floral-sprig" x="0" y="110" width="55" height="80"/>
+      </svg>
+    </div>
+    <div class="hero-floral-br">
+      <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+        <use href="#floral-rose" x="120" y="120" width="90" height="90"/>
+        <use href="#floral-sprig" x="60" y="130" width="60" height="90"/>
+        <use href="#floral-rose" x="90" y="60" width="70" height="70"/>
+        <use href="#floral-sprig" x="160" y="40" width="55" height="80"/>
+      </svg>
+    </div>
+    <div class="hero-floral-tr">
+      <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+        <use href="#floral-sprig" x="40" y="0" width="55" height="80"/>
+        <use href="#floral-rose" x="60" y="60" width="70" height="70"/>
+      </svg>
+    </div>
+    <div class="hero-floral-bl">
+      <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+        <use href="#floral-rose" x="10" y="10" width="70" height="70"/>
+        <use href="#floral-sprig" x="50" y="60" width="55" height="80"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Bismillah -->
+    <p class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+
+    <!-- Invitation headline -->
+    <p class="headline">Together with their families, joyfully invite you to celebrate their marriage.</p>
+
+    <!-- Couple names — centrepiece with backdrop -->
+    <div class="names-backdrop">
+      <h1 id="couple-names">
+        <span data-config="brideName">Adeline</span>
+        &amp;
+        <span data-config="groomName">Harper</span>
+      </h1>
+    </div>
+
+    <p class="hero-tagline">❧ Walimah Reception ❧</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     EVENT DETAILS SECTION
+     ============================================================ -->
+<section id="event">
+  <div class="container">
+    <div class="section-heading" data-animate="fade-up">
+      <h2>Wedding Details</h2>
+    </div>
+    <div class="event-card" data-animate="fade-up" data-stagger="1">
+      <div class="event-badge-wrap">
+        <!-- Date badge — fully driven by CONFIG via JS -->
+        <a href="#countdown" class="date-badge-link" title="Jump to countdown">
+          <div class="date-badge" id="date-badge">
+            <div class="date-badge-day"   id="badge-day">--</div>
+            <div class="date-badge-month" id="badge-month">---</div>
+            <div class="date-badge-year"  id="badge-year">----</div>
+          </div>
+        </a>
+      </div>
+      <div class="details-grid">
+        <div class="detail-item">
+          <span class="detail-icon">📅</span>
+          <div>
+            <span class="detail-label">Day</span>
+            <a href="#countdown" class="detail-link" title="Jump to countdown">
+              <span class="detail-value" data-config="eventDay">Saturday</span>
+            </a>
+          </div>
+        </div>
+        <div class="detail-item">
+          <span class="detail-icon">🗓️</span>
+          <div>
+            <span class="detail-label">Date</span>
+            <a href="#countdown" class="detail-link" title="Jump to countdown">
+              <span class="detail-value" data-config="eventDate">--</span>
+            </a>
+          </div>
+        </div>
+        <div class="detail-item">
+          <span class="detail-icon">🕌</span>
+          <div>
+            <span class="detail-label">Time</span>
+            <a href="#countdown" class="detail-link" title="Jump to countdown">
+              <span class="detail-value" data-config="eventTime">--</span>
+            </a>
+          </div>
+        </div>
+        <div class="detail-item">
+          <span class="detail-icon">📍</span>
+          <div>
+            <span class="detail-label">Venue</span>
+            <!-- venueMapUrl in CONFIG controls the maps link -->
+            <a id="venue-map-link" href="#" target="_blank" rel="noopener" class="detail-link venue-link" title="Open in Google Maps">
+              <span class="detail-value" data-config="venueName">The Grand Hall</span>
+              <span class="venue-map-icon">🗺️</span>
+            </a>
+            <span style="display:block;font-size:0.85rem;color:var(--color-text-light);margin-top:0.2rem;" data-config="venueAddress">123 Rose Garden Lane, Any City</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WALIMAH SECTION — Sub-section A: Walimah Hadiths
+     ============================================================ -->
+<section id="walimah">
+  <div class="container">
+    <div class="section-heading" data-animate="fade-up">
+      <h2>The Walimah</h2>
+    </div>
+    <p class="walimah-intro" data-animate="fade-up" data-stagger="1">
+      The <em>Walimah</em> is the blessed wedding feast celebrated after the marriage contract (<em>nikah</em>).
+      It is a confirmed Sunnah of the Prophet Muhammad ﷺ — an act of gratitude to Allah and a joyful
+      announcement of the union to family and friends. Attending the Walimah when invited is a right
+      of the Muslim upon his brother.
+    </p>
+
+    <div class="hadith-cards-grid">
+      <!-- Hadith 1: Sahih al-Bukhari, Book 67, Hadith 72 -->
+      <div class="hadith-card" data-animate="fade-up" data-stagger="2">
+        <blockquote class="hadith-text">
+          "Give a Walimah feast, even if with one sheep."
+        </blockquote>
+        <cite>— Narrated by Anas ibn Malik (RA): The Prophet ﷺ said to Abd al-Rahman ibn Awf.
+          <br><strong>Sahih al-Bukhari, Book 67, Hadith 72</strong>
+        </cite>
+      </div>
+
+      <!-- Hadith 2: Sahih Muslim, Book 16, Hadith 3500 -->
+      <div class="hadith-card" data-animate="fade-up" data-stagger="3">
+        <blockquote class="hadith-text">
+          "When one of you is invited to a wedding feast, he should attend it."
+        </blockquote>
+        <cite>— Attending the Walimah when invited is a right of the Muslim upon his brother.
+          <br><strong>Sahih Muslim, Book 16, Hadith 3500</strong>
+        </cite>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         WISDOM SUB-SECTION — Islamic Marriage Wisdom
+         ============================================================ -->
+    <div id="wisdom">
+      <div class="section-heading" data-animate="fade-up">
+        <h2>Wisdom on Marriage</h2>
+      </div>
+
+      <!-- Group 1: On the Bond of Souls and Love -->
+      <div class="wisdom-group" data-animate="fade-up" data-stagger="1">
+        <h3>On the Bond of Souls and Love</h3>
+        <div class="wisdom-cards-grid">
+          <div class="hadith-card" data-animate="fade-up" data-stagger="1">
+            <blockquote class="hadith-text">
+              "There is nothing like marriage, for two who love one another."
+            </blockquote>
+            <cite>— <strong>Sunan Ibn Majah 1847</strong></cite>
+          </div>
+          <div class="hadith-card" data-animate="fade-up" data-stagger="2">
+            <blockquote class="hadith-text">
+              "Souls are like conscripted soldiers; those whom they recognize, they get along with,
+              and those whom they do not recognize, they will not get along with."
+            </blockquote>
+            <cite>— <strong>Sahih Bukhari 3336 | Sahih Muslim 2638</strong></cite>
+          </div>
+        </div>
+      </div>
+
+      <!-- Group 2: On Character and Kindness -->
+      <div class="wisdom-group" data-animate="fade-up" data-stagger="2">
+        <h3>On Character and Kindness</h3>
+        <div class="wisdom-cards-grid">
+          <div class="hadith-card" data-animate="fade-up" data-stagger="1">
+            <blockquote class="hadith-text">
+              "The most perfect of the believers in faith is the one with the best character,
+              and the best of you are those who are best to their wives."
+            </blockquote>
+            <cite>— <strong>Sunan at-Tirmidhi 1162</strong></cite>
+          </div>
+        </div>
+      </div>
+
+      <!-- Group 3: On Companionship and Gratitude -->
+      <div class="wisdom-group" data-animate="fade-up" data-stagger="3">
+        <h3>On Companionship and Gratitude</h3>
+        <div class="wisdom-cards-grid">
+          <div class="hadith-card" data-animate="fade-up" data-stagger="1">
+            <blockquote class="hadith-text">
+              "Let one of you acquire a thankful heart, a tongue that remembers Allah,
+              and a believing wife who helps him with regard to the Hereafter."
+            </blockquote>
+            <cite>— <strong>Sunan Ibn Majah 1856</strong></cite>
+          </div>
+          <div class="hadith-card" data-animate="fade-up" data-stagger="2">
+            <blockquote class="hadith-text">
+              "A believer must not hate (his) believing wife; if he dislikes one of her
+              characteristics, he will be pleased with another."
+            </blockquote>
+            <cite>— <strong>Sahih Muslim 1467</strong></cite>
+          </div>
+        </div>
+      </div>
+    </div><!-- /#wisdom -->
+  </div>
+</section>
+
+<!-- ============================================================
+     COUNTDOWN SECTION
+     ============================================================ -->
+<section id="countdown">
+  <div class="container">
+    <div class="section-heading" data-animate="fade-up">
+      <h2>Counting Down to the Big Day</h2>
+    </div>
+    <div class="countdown-wrap" data-animate="fade-up" data-stagger="1">
+      <div class="countdown-unit" id="cd-days">
+        <span class="cd-number">--</span>
+        <span class="cd-label">Days</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit" id="cd-hours">
+        <span class="cd-number">--</span>
+        <span class="cd-label">Hours</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit" id="cd-minutes">
+        <span class="cd-number">--</span>
+        <span class="cd-label">Minutes</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit" id="cd-seconds">
+        <span class="cd-number">--</span>
+        <span class="cd-label">Seconds</span>
+      </div>
+    </div>
+    <p class="countdown-msg" id="cd-message"></p>
+    <p style="margin-top:0.75rem;font-size:0.8rem;">
+      <a href="#event" id="cd-back-link" class="detail-link" style="font-size:0.8rem;">← Back to event details</a>
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     FLOWER GARDEN — Growing plant driven by wedding date proximity
+     ============================================================ -->
+<section id="flower-garden">
+  <svg id="plant-svg" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"
+       style="width:100%;height:auto;display:block;" aria-hidden="true">
+
+    <!-- ===== SKY BACKGROUND ===== -->
+    <rect x="0" y="0" width="800" height="320" fill="url(#sky-bg-grad)"/>
+    <defs>
+      <linearGradient id="sky-bg-grad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#fce8f0"/>
+        <stop offset="100%" stop-color="#f0e8fc"/>
+      </linearGradient>
+      <linearGradient id="ground-grad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#8b5e3c"/>
+        <stop offset="100%" stop-color="#5a3a1a"/>
+      </linearGradient>
+      <linearGradient id="grass-grad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#6aaa3a"/>
+        <stop offset="100%" stop-color="#4a8a1a"/>
+      </linearGradient>
+      <radialGradient id="petal-grad-1" cx="50%" cy="60%" r="50%">
+        <stop offset="0%" stop-color="#f8d0e0"/>
+        <stop offset="100%" stop-color="#e8709a"/>
+      </radialGradient>
+      <radialGradient id="petal-grad-2" cx="50%" cy="60%" r="50%">
+        <stop offset="0%" stop-color="#fce0ee"/>
+        <stop offset="100%" stop-color="#d4607a"/>
+      </radialGradient>
+      <radialGradient id="center-grad-r" cx="40%" cy="40%" r="60%">
+        <stop offset="0%" stop-color="#ffe0a0"/>
+        <stop offset="100%" stop-color="#c8600a"/>
+      </radialGradient>
+    </defs>
+
+    <!-- ===== GROUND ===== -->
+    <rect x="0" y="320" width="800" height="100" fill="url(#ground-grad)"/>
+    <ellipse cx="400" cy="320" rx="420" ry="12" fill="#a07040" opacity="0.5"/>
+
+    <!-- ===== GRASS BLADES ===== -->
+    <g fill="url(#grass-grad)" opacity="0.7">
+      <polygon points="60,320 65,280 70,320"/><polygon points="80,320 87,270 94,320"/>
+      <polygon points="105,320 111,285 117,320"/><polygon points="130,320 136,275 142,320"/>
+      <polygon points="155,320 160,290 165,320"/><polygon points="175,320 182,268 189,320"/>
+      <polygon points="200,320 205,282 210,320"/><polygon points="220,320 226,272 232,320"/>
+      <polygon points="240,320 246,288 252,320"/><polygon points="260,320 265,278 270,320"/>
+      <polygon points="280,320 285,292 290,320"/><polygon points="300,320 306,274 312,320"/>
+      <polygon points="490,320 496,274 502,320"/><polygon points="510,320 516,288 522,320"/>
+      <polygon points="530,320 535,278 540,320"/><polygon points="550,320 556,292 562,320"/>
+      <polygon points="570,320 575,272 580,320"/><polygon points="590,320 596,282 602,320"/>
+      <polygon points="610,320 616,268 622,320"/><polygon points="630,320 635,290 640,320"/>
+      <polygon points="650,320 656,275 662,320"/><polygon points="670,320 676,285 682,320"/>
+      <polygon points="690,320 696,270 702,320"/><polygon points="710,320 715,280 720,320"/>
+      <polygon points="730,320 736,265 742,320"/>
+    </g>
+    <g fill="#4a9a2a" opacity="0.9">
+      <polygon points="30,322 37,272 44,322"/><polygon points="55,322 63,260 71,322"/>
+      <polygon points="90,322 97,268 104,322"/><polygon points="120,322 128,255 136,322"/>
+      <polygon points="150,322 157,265 164,322"/><polygon points="185,322 192,258 199,322"/>
+      <polygon points="215,322 222,270 229,322"/><polygon points="245,322 252,262 259,322"/>
+      <polygon points="275,322 281,272 287,322"/><polygon points="305,322 311,260 317,322"/>
+      <polygon points="483,322 490,260 497,322"/><polygon points="513,322 519,272 525,322"/>
+      <polygon points="543,322 549,262 555,322"/><polygon points="573,322 579,270 585,322"/>
+      <polygon points="603,322 609,258 615,322"/><polygon points="633,322 640,265 647,322"/>
+      <polygon points="663,322 669,268 675,322"/><polygon points="693,322 700,255 707,322"/>
+      <polygon points="723,322 729,260 735,322"/><polygon points="753,322 759,272 765,322"/>
+    </g>
+
+    <!-- ===== SMALL SIDE FLOWERS ===== -->
+    <g opacity="0.6">
+      <circle cx="180" cy="308" r="5" fill="#e8a0b4"/><circle cx="180" cy="308" r="2.5" fill="#ffe066"/>
+      <ellipse cx="180" cy="301" rx="3" ry="5" fill="#f0b8c8" opacity="0.8"/>
+      <ellipse cx="180" cy="301" rx="3" ry="5" fill="#f0b8c8" opacity="0.8" transform="rotate(60 180 308)"/>
+      <ellipse cx="180" cy="301" rx="3" ry="5" fill="#f0b8c8" opacity="0.8" transform="rotate(120 180 308)"/>
+      <ellipse cx="180" cy="301" rx="3" ry="5" fill="#f0b8c8" opacity="0.8" transform="rotate(180 180 308)"/>
+      <ellipse cx="180" cy="301" rx="3" ry="5" fill="#f0b8c8" opacity="0.8" transform="rotate(240 180 308)"/>
+      <ellipse cx="180" cy="301" rx="3" ry="5" fill="#f0b8c8" opacity="0.8" transform="rotate(300 180 308)"/>
+      <circle cx="620" cy="308" r="5" fill="#c9a0dc"/><circle cx="620" cy="308" r="2.5" fill="#ffe066"/>
+      <ellipse cx="620" cy="301" rx="3" ry="5" fill="#d4b0e8" opacity="0.8"/>
+      <ellipse cx="620" cy="301" rx="3" ry="5" fill="#d4b0e8" opacity="0.8" transform="rotate(60 620 308)"/>
+      <ellipse cx="620" cy="301" rx="3" ry="5" fill="#d4b0e8" opacity="0.8" transform="rotate(120 620 308)"/>
+      <ellipse cx="620" cy="301" rx="3" ry="5" fill="#d4b0e8" opacity="0.8" transform="rotate(180 620 308)"/>
+      <ellipse cx="620" cy="301" rx="3" ry="5" fill="#d4b0e8" opacity="0.8" transform="rotate(240 620 308)"/>
+      <ellipse cx="620" cy="301" rx="3" ry="5" fill="#d4b0e8" opacity="0.8" transform="rotate(300 620 308)"/>
+    </g>
+
+    <!-- ===== MAIN PLANT ===== -->
+    <path id="plant-stem" d="M400,322 C400,300 396,275 398,250 C400,225 404,200 401,175 C398,150 402,125 400,100 C398,80 400,65 400,65" fill="none" stroke="#3a7a1a" stroke-width="6" stroke-linecap="round"/>
+    <path id="plant-stem-l" d="M399,200 C385,190 368,182 352,170" fill="none" stroke="#3a7a1a" stroke-width="4" stroke-linecap="round"/>
+    <path id="plant-stem-r" d="M401,175 C415,165 432,158 448,148" fill="none" stroke="#3a7a1a" stroke-width="4" stroke-linecap="round"/>
+
+    <g class="plant-leaf" id="leaf-1">
+      <path d="M399,260 C375,248 355,240 340,252 C355,258 375,262 399,268 Z" fill="#5aaa2a" stroke="#3a7a1a" stroke-width="1"/>
+      <line x1="399" y1="260" x2="345" y2="252" stroke="#3a7a1a" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+    <g class="plant-leaf" id="leaf-2">
+      <path d="M401,245 C425,233 445,225 460,237 C445,243 425,247 401,253 Z" fill="#6aba3a" stroke="#3a7a1a" stroke-width="1"/>
+      <line x1="401" y1="245" x2="455" y2="237" stroke="#3a7a1a" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+    <g class="plant-leaf" id="leaf-3">
+      <path d="M399,210 C378,198 360,192 348,200 C362,208 380,212 399,216 Z" fill="#5aaa2a" stroke="#3a7a1a" stroke-width="1"/>
+      <line x1="399" y1="210" x2="352" y2="200" stroke="#3a7a1a" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+    <g class="plant-leaf" id="leaf-4">
+      <path d="M401,190 C420,178 438,173 450,180 C437,188 420,192 401,196 Z" fill="#6aba3a" stroke="#3a7a1a" stroke-width="1"/>
+      <line x1="401" y1="190" x2="446" y2="180" stroke="#3a7a1a" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+    <g class="plant-leaf" id="leaf-5">
+      <path d="M352,170 C335,158 322,152 318,160 C330,166 344,168 352,174 Z" fill="#7aca4a" stroke="#3a7a1a" stroke-width="1"/>
+    </g>
+    <g class="plant-leaf" id="leaf-6">
+      <path d="M448,148 C465,136 478,130 482,138 C470,144 456,146 448,152 Z" fill="#7aca4a" stroke="#3a7a1a" stroke-width="1"/>
+    </g>
+
+    <g class="plant-bud" id="plant-bud">
+      <path d="M400,95 C393,88 390,78 395,68 C398,78 400,88 400,95 Z" fill="#4a9a1a"/>
+      <path d="M400,95 C407,88 410,78 405,68 C402,78 400,88 400,95 Z" fill="#5aaa2a"/>
+      <path d="M400,95 C395,82 392,70 400,62 C408,70 405,82 400,95 Z" fill="#4a9a1a"/>
+      <ellipse cx="400" cy="78" rx="10" ry="18" fill="#e8709a"/>
+      <ellipse cx="394" cy="80" rx="7" ry="14" fill="#f0a0b8" transform="rotate(-15 394 80)"/>
+      <ellipse cx="406" cy="80" rx="7" ry="14" fill="#f0a0b8" transform="rotate(15 406 80)"/>
+      <ellipse cx="400" cy="72" rx="6" ry="10" fill="#f8c0d0"/>
+    </g>
+
+    <g id="bloom-group">
+      <ellipse class="plant-petal" cx="400" cy="42" rx="14" ry="28" fill="url(#petal-grad-1)" style="transform-origin:400px 70px;animation-delay:0s"/>
+      <ellipse class="plant-petal" cx="400" cy="42" rx="14" ry="28" fill="url(#petal-grad-2)" transform="rotate(45 400 70)" style="transform-origin:400px 70px;animation-delay:0.08s"/>
+      <ellipse class="plant-petal" cx="400" cy="42" rx="14" ry="28" fill="url(#petal-grad-1)" transform="rotate(90 400 70)" style="transform-origin:400px 70px;animation-delay:0.16s"/>
+      <ellipse class="plant-petal" cx="400" cy="42" rx="14" ry="28" fill="url(#petal-grad-2)" transform="rotate(135 400 70)" style="transform-origin:400px 70px;animation-delay:0.24s"/>
+      <ellipse class="plant-petal" cx="400" cy="42" rx="14" ry="28" fill="url(#petal-grad-1)" transform="rotate(180 400 70)" style="transform-origin:400px 70px;animation-delay:0.32s"/>
+      <ellipse class="plant-petal" cx="400" cy="42" rx="14" ry="28" fill="url(#petal-grad-2)" transform="rotate(225 400 70)" style="transform-origin:400px 70px;animation-delay:0.40s"/>
+      <ellipse class="plant-petal" cx="400" cy="42" rx="14" ry="28" fill="url(#petal-grad-1)" transform="rotate(270 400 70)" style="transform-origin:400px 70px;animation-delay:0.48s"/>
+      <ellipse class="plant-petal" cx="400" cy="42" rx="14" ry="28" fill="url(#petal-grad-2)" transform="rotate(315 400 70)" style="transform-origin:400px 70px;animation-delay:0.56s"/>
+      <ellipse class="plant-petal" cx="400" cy="52" rx="9" ry="20" fill="#f8d0e0" transform="rotate(22.5 400 70)" style="transform-origin:400px 70px;animation-delay:0.3s"/>
+      <ellipse class="plant-petal" cx="400" cy="52" rx="9" ry="20" fill="#f8d0e0" transform="rotate(67.5 400 70)" style="transform-origin:400px 70px;animation-delay:0.38s"/>
+      <ellipse class="plant-petal" cx="400" cy="52" rx="9" ry="20" fill="#f8d0e0" transform="rotate(112.5 400 70)" style="transform-origin:400px 70px;animation-delay:0.46s"/>
+      <ellipse class="plant-petal" cx="400" cy="52" rx="9" ry="20" fill="#f8d0e0" transform="rotate(157.5 400 70)" style="transform-origin:400px 70px;animation-delay:0.54s"/>
+      <ellipse class="plant-petal" cx="400" cy="52" rx="9" ry="20" fill="#f8d0e0" transform="rotate(202.5 400 70)" style="transform-origin:400px 70px;animation-delay:0.62s"/>
+      <ellipse class="plant-petal" cx="400" cy="52" rx="9" ry="20" fill="#f8d0e0" transform="rotate(247.5 400 70)" style="transform-origin:400px 70px;animation-delay:0.70s"/>
+      <ellipse class="plant-petal" cx="400" cy="52" rx="9" ry="20" fill="#f8d0e0" transform="rotate(292.5 400 70)" style="transform-origin:400px 70px;animation-delay:0.78s"/>
+      <ellipse class="plant-petal" cx="400" cy="52" rx="9" ry="20" fill="#f8d0e0" transform="rotate(337.5 400 70)" style="transform-origin:400px 70px;animation-delay:0.86s"/>
+      <circle class="plant-petal" cx="400" cy="70" r="16" fill="#d4607a" style="transform-origin:400px 70px;animation-delay:0.5s"/>
+      <circle class="plant-petal" cx="400" cy="70" r="10" fill="#c04060" style="transform-origin:400px 70px;animation-delay:0.6s"/>
+      <circle class="plant-petal" cx="400" cy="70" r="5" fill="url(#center-grad-r)" style="transform-origin:400px 70px;animation-delay:0.7s"/>
+      <circle class="plant-petal" cx="400" cy="57" r="2" fill="#ffe066" style="transform-origin:400px 70px;animation-delay:0.9s"/>
+      <circle class="plant-petal" cx="400" cy="57" r="2" fill="#ffe066" transform="rotate(45 400 70)" style="transform-origin:400px 70px;animation-delay:0.95s"/>
+      <circle class="plant-petal" cx="400" cy="57" r="2" fill="#ffe066" transform="rotate(90 400 70)" style="transform-origin:400px 70px;animation-delay:1.0s"/>
+      <circle class="plant-petal" cx="400" cy="57" r="2" fill="#ffe066" transform="rotate(135 400 70)" style="transform-origin:400px 70px;animation-delay:1.05s"/>
+      <circle class="plant-petal" cx="400" cy="57" r="2" fill="#ffe066" transform="rotate(180 400 70)" style="transform-origin:400px 70px;animation-delay:1.1s"/>
+      <circle class="plant-petal" cx="400" cy="57" r="2" fill="#ffe066" transform="rotate(225 400 70)" style="transform-origin:400px 70px;animation-delay:1.15s"/>
+      <circle class="plant-petal" cx="400" cy="57" r="2" fill="#ffe066" transform="rotate(270 400 70)" style="transform-origin:400px 70px;animation-delay:1.2s"/>
+      <circle class="plant-petal" cx="400" cy="57" r="2" fill="#ffe066" transform="rotate(315 400 70)" style="transform-origin:400px 70px;animation-delay:1.25s"/>
+      <text class="plant-sparkle" x="358" y="48" font-size="14" fill="#ffe066" text-anchor="middle" style="animation-delay:1.0s">✦</text>
+      <text class="plant-sparkle" x="442" y="44" font-size="12" fill="#f0b8c8" text-anchor="middle" style="animation-delay:1.2s">✦</text>
+      <text class="plant-sparkle" x="365" y="88" font-size="10" fill="#ffe066" text-anchor="middle" style="animation-delay:1.4s">✦</text>
+      <text class="plant-sparkle" x="435" y="90" font-size="14" fill="#c9a0dc" text-anchor="middle" style="animation-delay:1.1s">✦</text>
+      <text class="plant-sparkle" x="400" y="30" font-size="11" fill="#f0b8c8" text-anchor="middle" style="animation-delay:1.3s">✦</text>
+      <text class="plant-sparkle" x="348" y="68" font-size="10" fill="#ffe066" text-anchor="middle" style="animation-delay:1.5s">✦</text>
+      <text class="plant-sparkle" x="452" y="72" font-size="12" fill="#c9a0dc" text-anchor="middle" style="animation-delay:1.6s">✦</text>
+    </g>
+
+    <!-- ===== HANDWRITING HINT TEXT ===== -->
+    <text x="400" y="360" text-anchor="middle" font-family="'Great Vibes', cursive" font-size="22" fill="#fae1c5" opacity="0.85">This little plant will grow with our love...</text>
+    <text x="400" y="390" text-anchor="middle" font-family="'Great Vibes', cursive" font-size="20" fill="#fae1c5" opacity="0.75">and bloom into a rose on our wedding day 🌸</text>
+  </svg>
+</section>
+
+<!-- ============================================================
+     RSVP / CLOSING SECTION
+     ============================================================ -->
+<section id="rsvp">
+  <div class="container">
+    <!-- Floral divider -->
+    <div class="rsvp-divider" aria-hidden="true">
+      <div class="rsvp-divider-line"></div>
+      <svg width="40" height="60" viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg">
+        <use href="#floral-sprig" width="80" height="120"/>
+      </svg>
+      <div class="rsvp-divider-line"></div>
+    </div>
+
+    <p class="rsvp-closing" data-animate="fade-up">
+      With hearts full of gratitude and joy, we warmly invite you to share in the blessings
+      of this blessed occasion. Your presence would be the greatest gift.
+    </p>
+
+    <!-- Change rsvpMessage in CONFIG to update -->
+    <p class="rsvp-message" data-animate="fade-up" data-stagger="1" data-config="rsvpMessage">
+      Kindly confirm your attendance by 1 June 2025
+    </p>
+
+    <div data-animate="fade-up" data-stagger="2" style="text-align:center;">
+      <a href="mailto:" class="rsvp-btn">RSVP</a>
+    </div>
+
+    <p class="rsvp-footer" data-animate="fade-up" data-stagger="3">
+      بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
+      <br>
+      <em style="font-size:0.8rem;">May Allah bless you both, and may He bless your union and bring you together in goodness.</em>
+    </p>
+  </div>
+</section>
+
+
+<script>
+  /* ============================================================
+     CONFIG BLOCK — Edit these values to personalise the invitation
+     ============================================================ */
+  const CONFIG = {
+    groomName: "Afzal",          // Change to groom's name
+    brideName: "Khatija",         // Change to bride's name
+    eventDay: "Saturday",         // Day of the week
+    eventDate: "12 May 2026",     // Full date — used everywhere including countdown
+    eventTime: "02:00 PM",        // Start time — used everywhere including countdown
+    venueName: "RK Place Function Hall",  // Venue name
+    venueAddress: "Kanaka Nagar, Hebbal, Bengaluru, Karnataka 560032", // Full address
+    venueMapUrl: "https://maps.app.goo.gl/rMQigyFYZSgXqgd1A", // Google Maps link
+    rsvpMessage: "Kindly confirm your attendance by 1 May 2026", // RSVP message
+  };
+
+  /* ============================================================
+     MODULE 1: Config Injector
+     Reads CONFIG and sets textContent on [data-config] elements
+     ============================================================ */
+  function injectConfig(config) {
+    Object.entries(config).forEach(([key, value]) => {
+      if (value === undefined) return;
+      document.querySelectorAll('[data-config="' + key + '"]')
+        .forEach(function(el) { el.textContent = value; });
+    });
+
+    // Update monogram center names (monogram removed — kept for compatibility)
+    // var mb = document.getElementById('monogram-bride');
+    // var mg = document.getElementById('monogram-groom');
+    // if (mb && config.brideName) mb.textContent = config.brideName;
+    // if (mg && config.groomName) mg.textContent = config.groomName;
+
+    // Populate date badge from eventDate (e.g. "10 May 2026")
+    if (config.eventDate) {
+      var parts = config.eventDate.trim().split(/\s+/);
+      // Support "10 May 2026" or "May 10 2026"
+      var dayNum, monthStr, yearStr;
+      if (parts.length === 3) {
+        if (isNaN(parseInt(parts[0]))) {
+          // "May 10 2026"
+          monthStr = parts[0]; dayNum = parts[1]; yearStr = parts[2];
+        } else {
+          // "10 May 2026"
+          dayNum = parts[0]; monthStr = parts[1]; yearStr = parts[2];
+        }
+        var bd = document.getElementById('badge-day');
+        var bm = document.getElementById('badge-month');
+        var by = document.getElementById('badge-year');
+        if (bd) bd.textContent = dayNum;
+        if (bm) bm.textContent = monthStr.toUpperCase();
+        if (by) by.textContent = yearStr;
+      }
+    }
+
+    // Set venue map link
+    var mapLink = document.getElementById('venue-map-link');
+    if (mapLink && config.venueMapUrl) {
+      mapLink.href = config.venueMapUrl;
+    } else if (mapLink && config.venueAddress) {
+      // Fallback: build Google Maps search from address
+      mapLink.href = 'https://maps.google.com/?q=' + encodeURIComponent((config.venueName || '') + ' ' + config.venueAddress);
+    }
+
+    // Add back-link from countdown to event section
+    var cdBackLink = document.getElementById('cd-back-link');
+    if (cdBackLink) cdBackLink.href = '#event';
+  }
+
+  /* ============================================================
+     MODULE 2: Animation Engine
+     Uses IntersectionObserver for scroll-triggered fade-ups
+     ============================================================ */
+  function initAnimations() {
+    if (!('IntersectionObserver' in window)) {
+      // Graceful degradation: remove all animate-hidden classes
+      document.querySelectorAll('[data-animate]').forEach(function(el) {
+        el.classList.remove('animate-hidden');
+      });
+      return;
+    }
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-visible');
+          entry.target.classList.remove('animate-hidden');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('[data-animate]').forEach(function(el) {
+      // Apply stagger delay class if data-stagger attribute present
+      var stagger = el.getAttribute('data-stagger');
+      if (stagger) {
+        el.classList.add('stagger-' + stagger);
+      }
+      // Mark as hidden (JS-only — not in static HTML)
+      el.classList.add('animate-hidden');
+      observer.observe(el);
+    });
+  }
+
+  /* ============================================================
+     MODULE 3: Name Reveal Animation
+     Triggers nameReveal CSS animation on #couple-names
+     ============================================================ */
+  function initNameReveal() {
+    requestAnimationFrame(function() {
+      setTimeout(function() {
+        var names = document.getElementById('couple-names');
+        if (names) {
+          names.classList.add('name-revealed');
+        }
+      }, 300);
+    });
+  }
+
+  /* ============================================================
+     MODULE 4: Parallax Controller
+     Moves #hero-florals at scrollY * 0.3 (throttled via rAF)
+     ============================================================ */
+  function initParallax() {
+    var ticking = false;
+
+    function updateParallax() {
+      try {
+        var scrollY = window.scrollY || window.pageYOffset;
+        var florals = document.getElementById('hero-florals');
+        if (florals) {
+          florals.style.transform = 'translateY(' + (scrollY * 0.3) + 'px)';
+        }
+        var illustration = document.querySelector('.hero-illustration');
+        if (illustration) {
+          illustration.style.transform = 'translateY(' + (scrollY * 0.1) + 'px)';
+        }
+      } catch (e) {
+        // Exit gracefully if elements not found
+      }
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    });
+  }
+
+  /* ============================================================
+     MODULE 5: Sky Scene
+     Determines day/night based on IST hour and shows appropriate sky
+     ============================================================ */
+  function initSkyScene() {
+    // Compute IST hour: UTC + 5:30
+    var utcMins = new Date().getUTCHours() * 60 + new Date().getUTCMinutes();
+    var istMins = (utcMins + 330) % 1440;
+    var istHour = istMins / 60;
+
+    var hero = document.getElementById('hero');
+    var daySvg = document.getElementById('sky-day-svg');
+    var nightSvg = document.getElementById('sky-night-svg');
+
+    if (istHour >= 6 && istHour < 18) {
+      // Day
+      if (hero) hero.classList.add('day-sky');
+      if (daySvg) daySvg.style.display = 'block';
+    } else {
+      // Night
+      if (hero) hero.classList.add('night-sky');
+      if (nightSvg) nightSvg.style.display = 'block';
+    }
+  }
+
+  /* ============================================================
+     MODULE 6: Flower Plant Growth
+     Drives plant SVG based on proximity to wedding date
+     ============================================================ */
+  function initFlowerPlant(config) {
+    function parseWeddingDateForPlant(dateStr, timeStr) {
+      try {
+        var dp = dateStr.trim().split(/\s+/);
+        var day, mon, yr;
+        if (dp.length === 3) {
+          if (isNaN(parseInt(dp[0]))) { mon = dp[0]; day = dp[1]; yr = dp[2]; }
+          else { day = dp[0]; mon = dp[1]; yr = dp[2]; }
+        } else { return null; }
+        var tp = timeStr.trim().match(/^(\d{1,2}):(\d{2})\s*(AM|PM)?$/i);
+        if (!tp) return null;
+        var h = parseInt(tp[1]), m = parseInt(tp[2]);
+        var ampm = (tp[3] || '').toUpperCase();
+        if (ampm === 'PM' && h !== 12) h += 12;
+        if (ampm === 'AM' && h === 12) h = 0;
+        var months = {jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
+        var mNum = months[mon.toLowerCase().slice(0,3)];
+        if (!mNum) return null;
+        var iso = yr + '-' + String(mNum).padStart(2,'0') + '-' + String(parseInt(day)).padStart(2,'0')
+          + 'T' + String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':00+05:30';
+        var d = new Date(iso);
+        return isNaN(d.getTime()) ? null : d;
+      } catch(e) { return null; }
+    }
+
+    var target = parseWeddingDateForPlant(config.eventDate, config.eventTime);
+    if (!target) return;
+
+    var now = Date.now();
+    var weddingMs = target.getTime();
+    var totalMs = weddingMs - now;
+
+    // progress: 0 = far away, 1 = wedding day or past
+    var progress;
+    if (totalMs <= 0) {
+      progress = 1;
+    } else {
+      // Use a reference window: 365 days before wedding = progress 0
+      var windowMs = 365 * 24 * 3600 * 1000;
+      var elapsed = windowMs - totalMs;
+      progress = Math.max(0, Math.min(1, elapsed / windowMs));
+    }
+
+    // Animate stem via stroke-dashoffset
+    var stem = document.getElementById('plant-stem');
+    if (stem) {
+      // Trigger after a short delay so CSS transition fires
+      setTimeout(function() {
+        stem.style.strokeDashoffset = String(300 * (1 - progress));
+      }, 200);
+    }
+
+    // Leaves appear at thresholds
+    function showLeaf(id, threshold) {
+      if (progress >= threshold) {
+        var el = document.getElementById(id);
+        if (el) el.style.opacity = '1';
+      }
+    }
+    setTimeout(function() {
+      showLeaf('leaf-1', 0.10);
+      showLeaf('leaf-2', 0.15);
+      showLeaf('leaf-3', 0.30);
+      showLeaf('leaf-4', 0.40);
+      showLeaf('leaf-5', 0.55);
+      showLeaf('leaf-6', 0.60);
+    }, 400);
+
+    // Bud appears at 0.55
+    setTimeout(function() {
+      if (progress >= 0.55) {
+        var bud = document.getElementById('plant-bud');
+        if (bud) bud.style.opacity = '1';
+      }
+    }, 600);
+
+    // Full bloom at progress >= 1
+    if (progress >= 1) {
+      setTimeout(triggerBloom, 800);
+    }
+  }
+
+  // Global bloom trigger — called by both initFlowerPlant and showCelebration
+  function triggerBloom() {
+    var garden = document.getElementById('flower-garden');
+    if (garden) garden.classList.add('bloomed');
+    var bud = document.getElementById('plant-bud');
+    if (bud) bud.style.opacity = '0';
+    // Make sure all leaves are visible too
+    ['leaf-1','leaf-2','leaf-3','leaf-4','leaf-5','leaf-6'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.style.opacity = '1';
+    });
+    // Fully extend stems
+    var stem = document.getElementById('plant-stem');
+    if (stem) stem.style.strokeDashoffset = '0';
+    var stemL = document.getElementById('plant-stem-l');
+    if (stemL) stemL.style.strokeDashoffset = '0';
+    var stemR = document.getElementById('plant-stem-r');
+    if (stemR) stemR.style.strokeDashoffset = '0';
+  }
+
+  /* ============================================================
+     MODULE 7: Flower Shower
+     Creates falling petal divs on celebration
+     ============================================================ */
+  function triggerFlowerShower() {
+    var colors = ['#e8a0b4','#c9a0dc','#f0b8c8','#d4b0e8','#ffb6c1','#dda0dd'];
+    var petals = [];
+    for (var i = 0; i < 40; i++) {
+      var petal = document.createElement('div');
+      petal.className = 'flower-petal';
+      var size = 10 + Math.random() * 10;
+      var left = Math.random() * 100;
+      var color = colors[Math.floor(Math.random() * colors.length)];
+      var duration = 2 + Math.random() * 2;
+      var delay = Math.random() * 2;
+      petal.style.cssText = [
+        'width:' + size + 'px',
+        'height:' + size + 'px',
+        'left:' + left + 'vw',
+        'top:-20px',
+        'background:' + color,
+        'animation:petalFall ' + duration + 's ease-in ' + delay + 's forwards'
+      ].join(';');
+      document.body.appendChild(petal);
+      petals.push(petal);
+    }
+    setTimeout(function() {
+      petals.forEach(function(p) { if (p.parentNode) p.parentNode.removeChild(p); });
+    }, 6000);
+  }
+
+  /* ============================================================
+     MODULE 5: Countdown Timer
+     Parses CONFIG.eventDate + CONFIG.eventTime and counts down
+     ============================================================ */
+  function initCountdown(config) {
+    // Parse "10 May 2026" + "11:00 AM" as IST (UTC+5:30)
+    // IST offset = 5.5 hours = 330 minutes = 19800 seconds
+    function parseWeddingDate(dateStr, timeStr) {
+      try {
+        // Normalise date to "Month DD YYYY" for reliable parsing
+        var dp = dateStr.trim().split(/\s+/);
+        var day, mon, yr;
+        if (dp.length === 3) {
+          if (isNaN(parseInt(dp[0]))) {
+            // "May 10 2026"
+            mon = dp[0]; day = dp[1]; yr = dp[2];
+          } else {
+            // "10 May 2026"
+            day = dp[0]; mon = dp[1]; yr = dp[2];
+          }
+        } else { return null; }
+
+        // Parse time "11:00 AM" → 24h hours + minutes
+        var tp = timeStr.trim().match(/^(\d{1,2}):(\d{2})\s*(AM|PM)?$/i);
+        if (!tp) return null;
+        var h = parseInt(tp[1]);
+        var m = parseInt(tp[2]);
+        var ampm = (tp[3] || '').toUpperCase();
+        if (ampm === 'PM' && h !== 12) h += 12;
+        if (ampm === 'AM' && h === 12) h = 0;
+
+        // Build ISO string in IST: "2026-05-10T11:00:00+05:30"
+        var months = { jan:1,feb:2,mar:3,apr:4,may:5,jun:6,
+                       jul:7,aug:8,sep:9,oct:10,nov:11,dec:12 };
+        var mNum = months[mon.toLowerCase().slice(0,3)];
+        if (!mNum) return null;
+
+        var iso = yr + '-'
+          + String(mNum).padStart(2,'0') + '-'
+          + String(parseInt(day)).padStart(2,'0') + 'T'
+          + String(h).padStart(2,'0') + ':'
+          + String(m).padStart(2,'0') + ':00+05:30';
+
+        var d = new Date(iso);
+        return isNaN(d.getTime()) ? null : d;
+      } catch (e) { return null; }
+    }
+
+    var target = parseWeddingDate(config.eventDate, config.eventTime);
+    if (!target) return; // silently skip if date can't be parsed
+
+    var daysEl    = document.querySelector('#cd-days .cd-number');
+    var hoursEl   = document.querySelector('#cd-hours .cd-number');
+    var minsEl    = document.querySelector('#cd-minutes .cd-number');
+    var secsEl    = document.querySelector('#cd-seconds .cd-number');
+    var msgEl     = document.getElementById('cd-message');
+
+    function pad(n) { return String(Math.floor(n)).padStart(2, '0'); }
+
+    function showCelebration() {
+      var wrap = document.querySelector('.countdown-wrap');
+      if (wrap) wrap.style.display = 'none';
+      var seps = document.querySelectorAll('.countdown-sep');
+      seps.forEach(function(s) { s.style.display = 'none'; });
+      if (msgEl) {
+        msgEl.innerHTML =
+          '<div class="cd-celebration">' +
+            '<div class="cd-cele-icon">🌸</div>' +
+            '<p class="cd-cele-title">Alhamdulillah — The Blessed Day Has Arrived!</p>' +
+            '<p class="cd-cele-dua">بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</p>' +
+            '<p class="cd-cele-dua-en"><em>May Allah bless you both, bless your union, and bring you together in goodness.</em></p>' +
+            '<p class="cd-cele-sub">Today, two souls unite in the most sacred bond. Welcome, dear guests — your presence makes this day complete.</p>' +
+          '</div>';
+      }
+      triggerFlowerShower();
+      triggerBloom();
+    }
+
+    function tick() {
+      var now  = Date.now();
+      var diff = target.getTime() - now;
+
+      if (diff <= 0) {
+        showCelebration();
+        return;
+      }
+
+      var days  = Math.floor(diff / 86400000);
+      var hours = Math.floor((diff % 86400000) / 3600000);
+      var mins  = Math.floor((diff % 3600000)  / 60000);
+      var secs  = Math.floor((diff % 60000)    / 1000);
+
+      if (daysEl)  daysEl.textContent  = pad(days);
+      if (hoursEl) hoursEl.textContent = pad(hours);
+      if (minsEl)  minsEl.textContent  = pad(mins);
+
+      // Pulse animation on seconds tick
+      if (secsEl) {
+        var prev = secsEl.textContent;
+        var next = pad(secs);
+        if (prev !== next) {
+          secsEl.textContent = next;
+          secsEl.classList.remove('cd-tick');
+          void secsEl.offsetWidth; // reflow to restart animation
+          secsEl.classList.add('cd-tick');
+        }
+      }
+
+      setTimeout(tick, 1000);
+    }
+
+    tick();
+  }
+
+  /* ============================================================
+     INITIALIZATION — Wire all modules on DOMContentLoaded
+     ============================================================ */
+  document.addEventListener('DOMContentLoaded', function() {
+    injectConfig(CONFIG);
+    initNameReveal();
+    initAnimations();
+    initParallax();
+    initSkyScene();
+    initFlowerPlant(CONFIG);
+    initCountdown(CONFIG);
+  });
+</script>
+</body>
+</html>
